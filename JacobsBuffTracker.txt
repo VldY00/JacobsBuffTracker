@@ -1,0 +1,9 @@
+## Title: JacobsBuffTracker
+## APIVersion: 101046
+## Author: @iJAcoBS
+## Version: 0.6
+## SavedVariables: JacobsBuffTrackerSavedVars
+## DependsOn: LibAddonMenu-2.0
+
+JacobsBuffTracker.lua
+JacobsBuffTracker_Settings.lua
