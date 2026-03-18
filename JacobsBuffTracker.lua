@@ -144,7 +144,6 @@ function JBT:AddTracker()
     self.sv.pendingNewTrackerName = ""
     self:SetSelectedTrackerId(newId)
 
-    d("[JBT] Added tracker " .. tostring(newId) .. ". Reloading UI...")
     ReloadUI()
 end
 
@@ -163,7 +162,6 @@ function JBT:DeleteTracker(trackerId)
 
     local selected = self.sv.trackers[1] and self.sv.trackers[1].id or 1
     self:SetSelectedTrackerId(selected)
-    d("[JBT] Deleted tracker " .. tostring(trackerId) .. ". Reloading UI...")
     ReloadUI()
 end
 
@@ -255,12 +253,6 @@ function JBT:SetUnlocked(unlocked)
             self:SaveBarPosition(trackerId)
             self:SaveRebuffPosition(trackerId)
         end
-    end
-
-    if unlocked then
-        d("[JBT] Unlocked")
-    else
-        d("[JBT] Locked")
     end
 
     self:UpdateAllUI()
@@ -690,7 +682,6 @@ function JBT:UpdateTrackerUI(trackerId)
             if runtime.rebuffLabel then
                 runtime.rebuffLabel:SetColor(1, 0.15, 0.15, 1)
             end
-            d("[JBT] REBUFF: " .. tostring(trackerData.name))
         end
         return
     end

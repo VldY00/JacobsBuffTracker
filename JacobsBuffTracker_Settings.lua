@@ -178,7 +178,6 @@ function JBT:InitializeSettings()
                 if tracker and num and num > 0 then
                     tracker.abilityId = math.floor(num)
                     RefreshCurrentTracker(true)
-                    d(string.format("[JBT] Tracker %d abilityId = %d", tracker.id, tracker.abilityId))
                 end
             end,
             isMultiline = false,
