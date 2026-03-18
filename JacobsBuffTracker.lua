@@ -56,7 +56,7 @@ local function SafeIcon(path)
 end
 
 local function GetPlayerClassIdSafe()
-    return GetUnitClassId("player") or 0
+    return GetUnitClassId("player")
 end
 
 local function CloneTable(tbl)
@@ -90,7 +90,10 @@ function JBT:GetRuntimeTracker(trackerId)
 end
 
 function JBT:GetSelectedTrackerId()
-    return (self.sv and self.sv.selectedTrackerId) or 1
+    if not self.sv then
+        return 1
+    end
+    return self.sv.selectedTrackerId
 end
 
 function JBT:SetSelectedTrackerId(trackerId)
@@ -805,7 +808,7 @@ function JBT:GetChoiceFromClassId(classId)
 end
 
 function JBT:Initialize()
-    self.sv = ZO_SavedVars:NewAccountWide("JacobsBuffTrackerSavedVars", 2, nil, defaults)
+    self.sv = ZO_SavedVars:NewAccountWide("JacobsBuffTrackerSavedVars", 2, GetWorldName(), defaults)
     self.unlocked = self.sv.unlocked
 
     if not self.sv.trackers or #self.sv.trackers == 0 then
@@ -831,9 +834,6 @@ function JBT:Initialize()
     EM:RegisterForUpdate(self.name .. "_Update", 100, function()
         self:UpdateAllUI()
     end)
-
-    d("[JBT] Loaded")
-    d("[JBT] Trackers loaded: " .. tostring(#self.sv.trackers))
 
     if self.InitializeSettings then
         self:InitializeSettings()

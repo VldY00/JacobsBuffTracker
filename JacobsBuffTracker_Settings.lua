@@ -12,7 +12,7 @@ function JBT:InitializeSettings()
         name = "JacobsBuffTracker",
         displayName = "JacobsBuffTracker",
         author = "Jacobs",
-        version = "0.5",
+        version = "0.6.1",
         registerForRefresh = true,
         registerForDefaults = false,
     }
@@ -178,7 +178,7 @@ function JBT:InitializeSettings()
                 if tracker and num and num > 0 then
                     tracker.abilityId = math.floor(num)
                     RefreshCurrentTracker(true)
-                    d("[JBT] Tracker " .. tostring(tracker.id) .. " abilityId = " .. tostring(tracker.abilityId))
+                    d(string.format("[JBT] Tracker %d abilityId = %d", tracker.id, tracker.abilityId))
                 end
             end,
             isMultiline = false,
