@@ -3,7 +3,7 @@
 ## Author: Jacobs
 ## Version: 0.6.1
 ## SavedVariables: JacobsBuffTrackerSavedVars
-## DependsOn: LibAddonMenu-2.0>=34
+## DependsOn: LibAddonMenu-2.0>=41
 
 JacobsBuffTracker.lua
 JacobsBuffTracker_Settings.lua
